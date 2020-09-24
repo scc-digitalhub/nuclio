@@ -27,7 +27,7 @@ spec:
   selector:
     nuclio.io/name: {{ template "nuclio.dlxName" . }}
   ports:
-  - name: proxy
+  - name: http-proxy
     port: 8080
     protocol: TCP
 {{- end }}

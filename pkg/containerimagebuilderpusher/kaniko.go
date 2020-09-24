@@ -218,8 +218,9 @@ func (k *Kaniko) compileKanikoJobSpec(namespace string,
 
 	kanikoJobSpec := &batchv1.Job{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      jobName,
-			Namespace: namespace,
+			Name:        jobName,
+			Namespace:   namespace,
+			Annotations: map[string]string{"sidecar.istio.io/inject": "false"},
 		},
 		Spec: batchv1.JobSpec{
 			Completions:           &completions,

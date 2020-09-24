@@ -30,7 +30,7 @@ spec:
   type: NodePort
 {{- end }}
   ports:
-  - name: admin
+  - name: http-admin
     port: 8070
     protocol: TCP
 {{- if .Values.dashboard.nodePort }}
