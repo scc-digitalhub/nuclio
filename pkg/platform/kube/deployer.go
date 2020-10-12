@@ -321,7 +321,7 @@ func (d *deployer) getFunctionPodLogsAndEvents(namespace string, name string) (s
 		maxLogLines := int64(MaxLogLines)
 		logsRequest, getLogsErr := d.consumer.kubeClientSet.CoreV1().
 			Pods(namespace).
-			GetLogs(pod.Name, &v1.PodLogOptions{TailLines: &maxLogLines}).
+			GetLogs(pod.Name, &v1.PodLogOptions{TailLines: &maxLogLines, Container: "nuclio"}).
 			Stream()
 		if getLogsErr != nil {
 			podLogsMessage += "Failed to read logs: " + getLogsErr.Error() + "\n"
